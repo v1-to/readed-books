@@ -7,13 +7,13 @@ enum Gender {
 }
 
 message User {
-    int64 id = 1;
+    int32 id = 1;
     string name = 2;
     Gender gender = 3;
 }
 
 message UserIdentifier {
-    int64 id = 1;
+    int32 id = 1;
 }
 
 message UserListResponse {

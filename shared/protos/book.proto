@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message Book {
+    int32 id = 1;
+    string name = 2;
+}
+
+message BookIdentifier {
+    int32 id = 1;
+}
+
+message BookListResponse {
+    repeated Book books = 1;
+}
+
+message Empty {}
+
+service BookService {
+    rpc Create(Book) returns (Empty) {};
+    rpc List(Empty) returns (BookListResponse) {};
+    rpc Read(BookIdentifier) returns (Book) {};
+    rpc Update(Book) returns (Empty) {};
+    rpc Delete(BookIdentifier) returns (Empty) {};
+}

@@ -5,8 +5,8 @@ app = Flask(__name__)
 PORT = 3000
 
 
-@app.route('/graphql')
-def hello_world():
+@app.route('/users')
+def get_users():
     return 'Hello, World!'
 
 
