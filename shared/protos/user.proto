@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+enum Gender {
+    UNKNOWN = 0;
+    MALE = 1;
+    FEMALE = 2;
+}
+
+message User {
+    int64 id = 1;
+    string name = 2;
+    Gender gender = 3;
+}
+
+message UserIdentifier {
+    int64 id = 1;
+}
+
+message UserListResponse {
+    repeated User users = 1;
+}
+
+message Empty {}
+
+service UserService {
+    rpc Create(User) returns (Empty) {};
+    rpc List(Empty) returns (UserListResponse) {};
+    rpc Read(UserIdentifier) returns (User) {};
+    rpc Update(User) returns (Empty) {};
+    rpc Delete(UserIdentifier) returns (Empty) {};
+}
