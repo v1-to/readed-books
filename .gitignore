@@ -1,0 +1,7 @@
+# PYTHON BASED
+venv/
+__pycache__
+
+
+# NODE BASED
+node_modules/
