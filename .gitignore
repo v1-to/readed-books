@@ -1,3 +1,7 @@
+# ANY
+*.sqlite
+
+
 # PYTHON BASED
 venv/
 __pycache__
