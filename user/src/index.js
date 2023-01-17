@@ -1,8 +1,8 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const server = new grpc.Server();
 const UserService = require('./service.js');
 const UserDAO = require('./dao.js')
+const server = new grpc.Server();
 
 async function startMicroservice() {
     const packageDefinition = await protoLoader.load('../shared/protos/user.proto');
