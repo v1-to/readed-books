@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "common.proto";
-
 enum Gender {
     UNKNOWN = 0;
     MALE = 1;
@@ -22,10 +20,12 @@ message UserListResponse {
     repeated User users = 1;
 }
 
+message UserEmpty {}
+
 service UserService {
-    rpc Create(User) returns (Empty) {};
-    rpc List(Empty) returns (UserListResponse) {};
+    rpc Create(User) returns (UserEmpty) {};
+    rpc List(UserEmpty) returns (UserListResponse) {};
     rpc Read(UserIdentifier) returns (User) {};
-    rpc Update(User) returns (Empty) {};
-    rpc Delete(UserIdentifier) returns (Empty) {};
+    rpc Update(User) returns (UserEmpty) {};
+    rpc Delete(UserIdentifier) returns (UserEmpty) {};
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc --plugin=protoc-gen-grpc=/usr/bin/grpc_python_plugin --python_out=./gateway/stubs/users/  --grpc_out=./gateway/stubs/users/  --proto_path=./shared/protos/ ./shared/protos/user.proto
+python3 -m grpc_tools.protoc --proto_path stubs=shared/protos/ shared/protos/user.proto --python_out=gateway/ --grpc_python_out=gateway/
 
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc --plugin=protoc-gen-grpc=/usr/bin/grpc_python_plugin --python_out=./gateway/stubs/books/  --grpc_out=./gateway/stubs/books/  --proto_path=./shared/protos/ ./shared/protos/book.proto
+python3 -m grpc_tools.protoc --proto_path=./shared/protos/ ./shared/protos/book.proto --python_out=./gateway/stubs/ --grpc_python_out=./gateway/stubs/
 
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc --plugin=protoc-gen-grpc=/usr/bin/grpc_python_plugin --python_out=./gateway/stubs/reads/  --grpc_out=./gateway/stubs/reads/  --proto_path=./shared/protos/ ./shared/protos/read.proto
+python3 -m grpc_tools.protoc --proto_path=./shared/protos/ ./shared/protos/read.proto --python_out=./gateway/stubs/ --grpc_python_out=./gateway/stubs/
