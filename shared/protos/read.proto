@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "common.proto";
 import "user.proto";
 import "book.proto";
 
@@ -16,8 +17,6 @@ message RemoveReadedBooksRequest {
 message GetUserReadedBooksResponse {
     repeated Book books = 1;
 }
-
-message Empty {}
 
 service ReadService {
     rpc AddReadedBooks(AddReadedBooksRequest) returns (Empty) {};

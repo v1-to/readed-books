@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "common.proto";
+
 message Book {
     int32 id = 1;
     string name = 2;
@@ -12,8 +14,6 @@ message BookIdentifier {
 message BookListResponse {
     repeated Book books = 1;
 }
-
-message Empty {}
 
 service BookService {
     rpc Create(Book) returns (Empty) {};
