@@ -13,7 +13,8 @@ stub = pb2_grpc.UserServiceStub(channel)
 
 @users_blueprint.route('/')
 def listUsers():
-    print('LIST USERS')
-    request = pb2.UserEmpty()
-    response = stub.List(request)
-    print(response)
+    message = pb2.UserEmpty()
+    response = stub.List(message)
+    for user in response.users:
+        print(user)
+    return 'teste'
